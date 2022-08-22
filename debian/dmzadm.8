@@ -1,0 +1,147 @@
+.\"  SPDX-License-Identifier: GPL-3.0-or-later
+.\"
+.\"  Copyright (C) 2016, Western Digital.
+.\"  (C) Copyright 2019 Tj <ubuntu@iam.tj>
+.\"  Copyright (C) 2020, Western Digital Corporation or its affiliates.
+.\"  Written by Damien Le Moal <damien.lemoal@wdc.com>
+.\"
+.TH dmzadm 8 "May 20 2020"
+.SH NAME
+dmzadm \- manage zoned block device format for use with the dm-zoned device
+mapper
+
+.SH SYNOPSIS
+.B dmzadm
+<
+.I operation
+>
+<
+.I [regular-block-device] zoned-block-device
+>
+[
+.I options
+]
+
+.SH DESCRIPTION
+.B dmzadm
+is used to format, check and repair a zoned block device used with the dm-zoned
+device mapper. 
+\fIzoned-block-device\fP is the device node corresponding to the target zoned
+blocks device (e.g.
+\fI/dev/sdXX\fP).
+\fIregular-block-device\fP is the optional device node corresponding to a
+regular block device to be used together with the zoned block devoce.
+\fIoperation\fP specifies the action to be taken for the device.
+.PP
+The exit code returned by
+.B dmzadm
+is 0 on success and 1 on failure.
+
+.SH OPERATIONS
+
+dmzadm allows the following operations.
+
+.TP
+.B Format
+Write to the zoned block device and optional regular block device dm-zoned
+metadata, whiping clean all data that was stored on the device.
+
+.TP
+.B Check
+Check the device(s) metadata consistency. No repair action is taken.
+Errors are not corrected with this operation. For repairing incorrect metadata,
+the
+\fIRepair\fP operation must be used.
+
+.TP
+.B Repair
+Check the device metadata consistency and try to repair any error
+detected.
+
+.TP
+.B Start
+Load the metadata information from disk(s) and activate the device-mapper
+target.
+
+.TP
+.B Stop
+Deactivate the device-mapper target associated with the block device(s).
+
+.TP
+.B Help
+Print a short usage description of dmzadm
+
+.SH OPTIONS
+
+.TP
+Options for selecting an operation are:
+
+.TP
+.BR \-\-format
+Format the specified block device(s).
+
+.TP
+.BR \-\-check
+Check the specified block device(s) metadata.
+
+.TP
+.BR \-\-repair
+Check the block device(s) metadata and attempt to repair any error found.
+
+.TP
+.BR \-\-start
+Load block device(s) metadata and activate the device-mapper target.
+
+.TP
+.BR \-\-stop
+Deactivate the device-mapper target for a zoned block device.
+
+.TP
+.BR \-\-help ", " \-h
+Print usage help.
+
+.TP
+General options:
+
+.TP
+.BR \-\-verbose ", " \-v
+Verbose output detailing actions taken.
+
+.TP
+.BR \-\-vverbose ", " \-vv
+Very detailed output of actions taken.
+
+.TP
+\fIFormat\fP operation options:
+
+.TP
+.BR \-\-seq=<num>
+Specify the number of sequential zones to be reserved for reclaim.
+
+.TP
+.BR \-\-label=<str>
+Sets the name for the device-mapper device. Defaults to
+.I dmz-<devname>
+.
+
+.TP
+.SH AUTHOR
+This version of
+.B dmzadm
+has been written by Damien Le Moal <damien.lemoal@wdc.com>
+and Albert H. Chen <albert.chen@wdc.com> with contributions from
+Hannes Reinecke <hare@suse.de>.
+
+.SH COPYRIGHT
+GNU General Public Licence version 3 or later
+.PP
+ (c) 2016-2020 Western Digital Corportation and its affiliates
+.PP
+Manual written by Damien Le Moal <damien.lemoal@wdc.com and by
+Tj <ubuntu@iam.tj> for Debian and Ubuntu.
+
+.SH AVAILABILITY
+.B dmzadm
+is available from https://github.com/hgst/dm-zoned-tools
+.SH SEE ALSO
+.BR dmsetup (8)

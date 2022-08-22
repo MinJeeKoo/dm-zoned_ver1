@@ -1,0 +1,15 @@
+./dm-zoned-tools/src/dmz_dev.c
+./dm-zoned-tools/src/dmzadm.c
+./dm-zoned-tools/src/dmz_lib.c
+./dm-zoned-tools/src/dmz_devmapper.c
+./dm-zoned-tools/src/dmz_check.c
+./dm-zoned-tools/src/dmz.h
+./dm-zoned-tools/src/dmz_format.c
+./src/dmz_dev.c
+./src/dmzadm.c
+./src/dmz_lib.c
+./src/dmz_devmapper.c
+./src/dmz_check.c
+./src/config.h
+./src/dmz.h
+./src/dmz_format.c
