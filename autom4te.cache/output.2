@@ -4678,7 +4678,6 @@ rm -rf conftest*
 fi
 
 
-
 if test -n "$ac_tool_prefix"; then
   for ac_prog in ar lib "link -lib"
   do
@@ -13494,31 +13493,11 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$blkid_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (blkid) were not met:
-
-$blkid_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables blkid_CFLAGS
-and blkid_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5        
+	as_fn_error $? "Could not find libblkid" "$LINENO" 5
 elif test $pkg_failed = untried; then
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables blkid_CFLAGS
-and blkid_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }        
+	as_fn_error $? "Could not find libblkid" "$LINENO" 5
 else
 	blkid_CFLAGS=$pkg_cv_blkid_CFLAGS
 	blkid_LIBS=$pkg_cv_blkid_LIBS
@@ -13585,31 +13564,11 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$kmod_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (libkmod) were not met:
-
-$kmod_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables kmod_CFLAGS
-and kmod_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5        
+	as_fn_error $? "Could not find libkmod" "$LINENO" 5
 elif test $pkg_failed = untried; then
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables kmod_CFLAGS
-and kmod_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }        
+	as_fn_error $? "Could not find libkmod" "$LINENO" 5
 else
 	kmod_CFLAGS=$pkg_cv_kmod_CFLAGS
 	kmod_LIBS=$pkg_cv_kmod_LIBS
@@ -13676,31 +13635,11 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$libudev_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (libudev) were not met:
-
-$libudev_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables libudev_CFLAGS
-and libudev_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5        
+	as_fn_error $? "Could not find libudev" "$LINENO" 5
 elif test $pkg_failed = untried; then
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables libudev_CFLAGS
-and libudev_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }        
+	as_fn_error $? "Could not find libudev" "$LINENO" 5
 else
 	libudev_CFLAGS=$pkg_cv_libudev_CFLAGS
 	libudev_LIBS=$pkg_cv_libudev_LIBS
@@ -13767,31 +13706,11 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$uuid_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (uuid) were not met:
-
-$uuid_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables uuid_CFLAGS
-and uuid_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5        
+	as_fn_error $? "Could not find libuuid" "$LINENO" 5
 elif test $pkg_failed = untried; then
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables uuid_CFLAGS
-and uuid_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }        
+	as_fn_error $? "Could not find libuuid" "$LINENO" 5
 else
 	uuid_CFLAGS=$pkg_cv_uuid_CFLAGS
 	uuid_LIBS=$pkg_cv_uuid_LIBS
@@ -13858,31 +13777,11 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$devmapper_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (devmapper) were not met:
-
-$devmapper_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables devmapper_CFLAGS
-and devmapper_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5        
+	as_fn_error $? "Could not find libdevmapper" "$LINENO" 5
 elif test $pkg_failed = untried; then
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables devmapper_CFLAGS
-and devmapper_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }        
+	as_fn_error $? "Could not find libdevmapper" "$LINENO" 5
 else
 	devmapper_CFLAGS=$pkg_cv_devmapper_CFLAGS
 	devmapper_LIBS=$pkg_cv_devmapper_LIBS

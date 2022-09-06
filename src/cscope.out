@@ -1,4 +1,4 @@
-cscope 15 /home/dcslab/mjkoo/dm-zoned-tools/src               0000304457
+cscope 15 /home/dcslab/mjkoo/wd_dmzoned/dm-zoned-tools/src               0000304517
 	@config.h
 
 5 
@@ -1279,15 +1279,11 @@ z⁄e_ƒ_£˘‹s
 
 	)
 
-384 
+385 
 	#dmz_z⁄e_Àngth
 (
 z
-Ë(z)->
-Àn
-
-
-	)
+) 2097152
 
 386 
 	#dmz_z⁄e_wp_£˘‹
@@ -8207,17 +8203,23 @@ blkz
 blkz
 );
 
-341  
+341 
+blkz
+->
+ˇ∑côy
+ = 2097152;
+
+342  
 blkz
 ->
 ˇ∑côy
 ;
 
-342 
+343 
 	}
 }
 
-344 
+345 
 __u64
  
 	$dmz_z⁄e_ˇ∑côy
@@ -8227,23 +8229,23 @@ blk_z⁄e
 blkz
 )
 
-346  
+347  
 	`dmz_z⁄e_Àngth
 (
 blkz
 );
 
-347 
+348 
 	}
 }
 
-350 
+351 
 	#DMZ_REPORT_ZONES_BUFSZ
  524288
 
 	)
 
-355 
+356 
 	$dmz_gë_dev_z⁄es
 (
 dmz_dev
@@ -8251,7 +8253,7 @@ dmz_dev
 dev
 )
 
-357 
+358 
 blk_z⁄e_ªp‹t
  *
 ªp
@@ -8259,65 +8261,41 @@ blk_z⁄e_ªp‹t
 NULL
 ;
 
-358 
+359 
 ªp_max_z⁄es
 ;
 
-359 
+360 
 blk_z⁄e
  *
 blkz
 ;
 
-360 
+361 
 i
 , 
 ƒ_z⁄es
 ;
 
-361 
+362 
 __u64
  
 £˘‹
 ;
 
-362 
+363 
 ªt
  = -1, 
 d
 ;
 
-364 
+365 
 dev
 ->
 ƒ_z⁄es
  = 0;
 
-366 
-	`Ârötf
-(
-°dîr
-, "dev->bdev[d].ƒ_z⁄e†:%u\n", 
-dev
-->
-bdev
-[0].
-ƒ_z⁄es
-);
-
-367 
-	`Ârötf
-(
-°dîr
-, "dev->bdev[d].ƒ_z⁄e†:%u\n", 
-dev
-->
-bdev
-[1].
-ƒ_z⁄es
-);
-
-368 
+366 
 d
  = 0; d < 
 dev
@@ -8325,7 +8303,7 @@ dev
 ƒ_bdev
 ; d++)
 
-369 
+367 
 dev
 ->
 ƒ_z⁄es
@@ -8335,7 +8313,7 @@ bdev
 d
 ].nr_zones;
 
-372 
+370 
 dev
 ->
 z⁄es
@@ -8347,19 +8325,19 @@ z⁄es
 blk_z⁄e
 ));
 
-373 i‡(!
+371 i‡(!
 dev
 ->
 z⁄es
 ) {
 
-374 
+372 
 	`Ârötf
 (
 °dîr
 , "NotÉnough memory\n");
 
-379 
+377 
 ªp
  = 
 	`mÆloc
@@ -8367,71 +8345,43 @@ z⁄es
 DMZ_REPORT_ZONES_BUFSZ
 );
 
-380 i‡(!
+378 i‡(!
 ªp
 ) {
 
-381 
+379 
 	`Ârötf
 (
 °dîr
 , "NotÉnough memory\n");
 
-382 
+380 
 out
 ;
 
-384 
+382 
 ªp_max_z⁄es
  =
 
-385 (
+383 (
 DMZ_REPORT_ZONES_BUFSZ
  - (
 blk_z⁄e_ªp‹t
 ))
 
-386 / (
+384 / (
 blk_z⁄e
 );
 
-387 
-	`Ârötf
-(
-°dîr
-, "ªp_max_z⁄es: %u\n", 
-ªp_max_z⁄es
-);
-
-389 
+386 
 £˘‹
  = 0;
 
-390 
+387 
 ƒ_z⁄es
  = 0;
 
-391 
-	`Ârötf
-(
-°dîr
-,"dev->z⁄e_ƒ_£˘‹s: %zd\n", 
-dev
-->
-z⁄e_ƒ_£˘‹s
-);
-
-392 
-	`Ârötf
-(
-°dîr
-,"dev->ˇ∑côy: %Œd\n", 
-dev
-->
-ˇ∑côy
-);
-
-393 
+388 
 £˘‹
  < 
 dev
@@ -8439,7 +8389,7 @@ dev
 ˇ∑côy
 ) {
 
-394 
+389 
 __u64
  
 £˘‹_off£t
@@ -8447,13 +8397,13 @@ __u64
 bdev_£˘‹
 ;
 
-395 
+390 
 dmz_block_dev
  *
 bdev
 ;
 
-397 
+392 
 bdev
  = 
 	`dmz_£˘‹_to_bdev
@@ -8465,7 +8415,7 @@ dev
 bdev_£˘‹
 );
 
-398 i‡(
+393 i‡(
 bdev
 ->
 ty≥
@@ -8473,7 +8423,7 @@ ty≥
 DMZ_TYPE_REGULAR
 ) {
 
-400 
+394 
 __u64
  
 z⁄e_Àn
@@ -8483,7 +8433,7 @@ dev
 z⁄e_ƒ_£˘‹s
 ;
 
-403 
+397 
 blkz
  = &
 dev
@@ -8493,7 +8443,7 @@ z⁄es
 ƒ_z⁄es
 ];
 
-404 
+398 
 blkz
 ->
 °¨t
@@ -8501,7 +8451,7 @@ blkz
 £˘‹
 ;
 
-405 i‡(
+399 i‡(
 blkz
 ->
 °¨t
@@ -8513,7 +8463,7 @@ bdev
 ˇ∑côy
 )
 
-406 
+400 
 z⁄e_Àn
  = 
 bdev
@@ -8525,7 +8475,7 @@ blkz
 °¨t
 ;
 
-407 
+401 
 blkz
 ->
 Àn
@@ -8533,7 +8483,7 @@ blkz
 z⁄e_Àn
 ;
 
-408 
+402 
 blkz
 ->
 wp
@@ -8541,7 +8491,7 @@ wp
 __u64
 )-1;
 
-409 
+403 
 blkz
 ->
 ty≥
@@ -8549,7 +8499,7 @@ ty≥
 BLK_ZONE_TYPE_UNKNOWN
 ;
 
-410 
+404 
 blkz
 ->
 c⁄d
@@ -8557,7 +8507,7 @@ c⁄d
 BLK_ZONE_COND_NOT_WP
 ;
 
-411 i‡(
+405 i‡(
 dev
 ->
 Êags
@@ -8565,7 +8515,7 @@ dev
 DMZ_VVERBOSE
 )
 
-412 
+406 
 	`dmz_¥öt_z⁄e
 (
 dev
@@ -8575,19 +8525,11 @@ bdev
 blkz
 );
 
-413 
+407 
 ƒ_z⁄es
 ++;
 
-414 
-	`Ârötf
-(
-°dîr
-,"ƒ_z⁄es_1: %u\n", 
-ƒ_z⁄es
-);
-
-415 
+408 
 £˘‹
  +
 dev
@@ -8595,7 +8537,7 @@ dev
 z⁄e_ƒ_£˘‹s
 ;
 
-421 
+413 
 £˘‹_off£t
  = 
 	`dmz_blk2£˘
@@ -8605,7 +8547,7 @@ bdev
 block_off£t
 );
 
-422 
+414 
 	`mem£t
 (
 ªp
@@ -8613,7 +8555,7 @@ block_off£t
 DMZ_REPORT_ZONES_BUFSZ
 );
 
-423 
+415 
 ªp
 ->
 £˘‹
@@ -8621,7 +8563,7 @@ DMZ_REPORT_ZONES_BUFSZ
 bdev_£˘‹
 ;
 
-424 
+416 
 ªp
 ->
 ƒ_z⁄es
@@ -8629,17 +8571,7 @@ bdev_£˘‹
 ªp_max_z⁄es
 ;
 
-425 
-	`Ârötf
-(
-°dîr
-, "ªp->ƒ_z⁄es_A: %u\n", 
-ªp
-->
-ƒ_z⁄es
-);
-
-426 i‡(
+417 i‡(
 dev
 ->
 Êags
@@ -8647,11 +8579,11 @@ dev
 DMZ_VVERBOSE
 )
 
-427 
+418 
 	`¥ötf
 ("%s:Ñeport zones sector %llu(%llu) zones %u start %u\n",
 
-428 
+419 
 bdev
 ->
 «me
@@ -8663,21 +8595,11 @@ bdev
 ƒ_z⁄es
 ,
 
-429 
+420 
 ƒ_z⁄es
 );
 
-430 
-	`Ârötf
-(
-°dîr
-, "ªp->ƒ_z⁄es_B: %u\n", 
-ªp
-->
-ƒ_z⁄es
-);
-
-431 
+421 
 ªt
  = 
 	`io˘l
@@ -8691,27 +8613,17 @@ BLKREPORTZONE
 ªp
 );
 
-434 
-	`Ârötf
-(
-°dîr
-, "ªp->ƒ_z⁄es_C: %u\n", 
-ªp
-->
-ƒ_z⁄es
-);
-
-435 i‡(
+422 i‡(
 ªt
  != 0) {
 
-436 
+423 
 	`Ârötf
 (
 °dîr
 ,
 
-438 
+425 
 bdev
 ->
 «me
@@ -8721,37 +8633,17 @@ bdev
 	`°ªº‹
 (errno));
 
-439 
+426 
 out
 ;
 
-441 
-	`Ârötf
-(
-°dîr
-, "ªp->ƒ_z⁄es_D: %u\n", 
-ªp
-->
-ƒ_z⁄es
-);
-
-442 i‡(!
+429 i‡(!
 ªp
 ->
 ƒ_z⁄es
 )
 
-444 
-	`Ârötf
-(
-°dîr
-, "ªp->ƒ_z⁄es_E: %u\n", 
-ªp
-->
-ƒ_z⁄es
-);
-
-445 
+432 
 blkz
  = (
 blk_z⁄e
@@ -8759,17 +8651,7 @@ blk_z⁄e
 ªp
  + 1);
 
-446 
-	`Ârötf
-(
-°dîr
-, "[FOR]ªp->ƒ_z⁄es: %u\n", 
-ªp
-->
-ƒ_z⁄es
-);
-
-447 
+433 
 i
  = 0; i < 
 ªp
@@ -8777,41 +8659,115 @@ i
 ƒ_z⁄es
 ; i++) {
 
-449 i‡(
+434 
+	`Ârötf
+(
+°dîr
+, "dmz_z⁄e_ˇ∑côy(blkzË: %Œu\n", 
+	`dmz_z⁄e_ˇ∑côy
+(
+blkz
+));
+
+435 
+	`Ârötf
+(
+°dîr
+, "dmz_z⁄e_Àngth(blkzË: %u\n", 
 	`dmz_z⁄e_Àngth
 (
 blkz
-Ë!
+));
+
+436 
+	`Ârötf
+(
+°dîr
+, "dev->z⁄e_ƒ_£˘‹† : %zu\n", 
 dev
 ->
 z⁄e_ƒ_£˘‹s
- &&
+);
 
-450 
+438 
+	`Ârötf
+(
+°dîr
+, "dmz_z⁄e_£˘‹(blkz)/ dmz_z⁄e_Àngth(blkzË: %Œu/ %Œu\n", 
 	`dmz_z⁄e_£˘‹
 (
 blkz
-Ë+ 
+),
 	`dmz_z⁄e_Àngth
-(blkzË!
+(blkz));
+
+439 
+	`Ârötf
+(
+°dîr
+, "[if]dev->z⁄e_ƒ_£˘‹†!4194304: %d\n",
+dev
+->
+z⁄e_ƒ_£˘‹s
+ != 4194304 );
+
+440 
+	`Ârötf
+(
+°dîr
+, "[if]dmz_z⁄e_£˘‹(blkzË+ 4194304 !bdev->ˇ∑côy : %d\n", 
+	`dmz_z⁄e_£˘‹
+(
+blkz
+Ë+ 4194304 !
 bdev
 ->
 ˇ∑côy
-) {
+ );
 
-452 
+441 
+	`Ârötf
+(
+°dîr
+, "[if] dmz_z⁄e_£˘‹(blkz), dmz_z⁄e_Àngth(blkz), bdev->ˇ∑côy : %Œu, %Œu, %Œu\n", 
+	`dmz_z⁄e_£˘‹
+(
+blkz
+),
+	`dmz_z⁄e_Àngth
+(blkz),
+bdev
+->
+ˇ∑côy
+);
+
+444 if–
+dev
+->
+z⁄e_ƒ_£˘‹s
+ !4194304 && 
+	`dmz_z⁄e_£˘‹
+(
+blkz
+Ë+ 4194304 !
+bdev
+->
+ˇ∑côy
+){
+
+445 
 	`Ârötf
 (
 °dîr
 ,
 
-454 
+447 
 bdev
 ->
 «me
 ,
 
-455 
+448 
 	`dmz_z⁄e_id
 (
 dev
@@ -8819,15 +8775,15 @@ dev
 blkz
 ));
 
-456 
+449 
 ªt
  = -1;
 
-457 
+450 
 out
 ;
 
-461 i‡(
+454 i‡(
 	`dmz_z⁄e_ˇ∑côy
 (
 blkz
@@ -8835,71 +8791,77 @@ blkz
 	`dmz_z⁄e_Àngth
 (blkz)) {
 
-462 
+457 
 	`Ârötf
 (
 °dîr
 ,
 
-465 
+460 
 bdev
 ->
 «me
 );
 
-466 
+461 
 ªt
  = -1;
 
-467 
+462 
 out
 ;
 
-469 
+465 
 	`Ârötf
 (
 °dîr
-, "[mj]ƒ_z⁄es: %u/ dev->ƒ_z⁄es: %u\n", 
+, "ƒ_z⁄es: %u\n", 
 ƒ_z⁄es
-,
-dev
-->nr_zones);
+);
 
-470 i‡(
+466 
+	`Ârötf
+(
+°dîr
+, "dev->ƒ_z⁄e†: %u\n", 
+dev
+->
+ƒ_z⁄es
+);
+
+467 i‡(
 ƒ_z⁄es
  >
 dev
 ->nr_zones) {
 
-471 
+468 
 	`Ârötf
 (
 °dîr
 ,
 
-473 
-ƒ_z⁄es
-,
-dev
-->ƒ_z⁄es,
+470 
 bdev
 ->
 «me
-,Çr_z⁄es, 
+, 
+ƒ_z⁄es
+, 
 blkz
 ->
 °¨t
 );
 
-474 
+471 
 ªt
  = -1;
 
-475 
+472 
 out
 ;
 
-477 
+474 
 blkz
 ->
 °¨t
@@ -8907,7 +8869,7 @@ blkz
 £˘‹_off£t
 ;
 
-478 
+475 
 blkz
 ->
 wp
@@ -8915,7 +8877,7 @@ wp
 £˘‹_off£t
 ;
 
-479 i‡(
+476 i‡(
 dev
 ->
 Êags
@@ -8923,7 +8885,7 @@ dev
 DMZ_VVERBOSE
 )
 
-480 
+477 
 	`dmz_¥öt_z⁄e
 (
 dev
@@ -8933,7 +8895,7 @@ bdev
 blkz
 );
 
-482 
+479 
 dev
 ->
 z⁄es
@@ -8943,65 +8905,69 @@ z⁄es
 blkz
 ;
 
-483 
+480 
 ƒ_z⁄es
 ++;
 
-484 
-	`Ârötf
-(
-°dîr
-,"ƒ_z⁄es_2: %u\n", 
-ƒ_z⁄es
-);
-
-486 
+483 
 £˘‹
  = 
 	`dmz_z⁄e_£˘‹
 (
 blkz
-Ë+ 
-	`dmz_z⁄e_Àngth
-(blkz);
+) + 4194304;
 
-488 
+484 
+	`Ârötf
+(
+°dîr
+, "£˘‹, dmz_z⁄e_£˘‹(blkz), dmz_z⁄e_Àngth(blkzË: %Œu, %Œu, %u\n", 
+£˘‹
+, 
+	`dmz_z⁄e_£˘‹
+(
+blkz
+), 
+	`dmz_z⁄e_Àngth
+(blkz));
+
+485 
 blkz
 ++;
 
-493 i‡(
+490 i‡(
 dev
 ->
 ƒ_z⁄es
  !=Çr_zones) {
 
-494 
+491 
 	`Ârötf
 (
 °dîr
 ,
 
-496 
+493 
 dev
 ->
 œbñ
 ,
 
-497 
+494 
 dev
 ->
 ƒ_z⁄es
 ,Çr_zones);
 
-498 
+495 
 ªt
  = -1;
 
-499 
+496 
 out
 ;
 
-504 i‡(
+499 i‡(
 £˘‹
  !
 ƒ_z⁄es
@@ -9011,19 +8977,19 @@ dev
 z⁄e_ƒ_£˘‹s
 ) {
 
-505 
+500 
 	`Ârötf
 (
 °dîr
 ,
 
-508 
+503 
 dev
 ->
 œbñ
 ,
 
-509 
+504 
 £˘‹
 , 
 dev
@@ -9031,33 +8997,33 @@ dev
 ˇ∑côy
 );
 
-510 
+505 
 ªt
  = -1;
 
-511 
+506 
 out
 ;
 
-514 
+509 
 out
 :
 
-515 
+510 
 	`‰ì
 (
 ªp
 );
 
-517  
+512  
 ªt
 ;
 
-518 
+513 
 	}
 }
 
-523 
+518 
 	$dmz_gë_bdev_öfo
 (
 dmz_block_dev
@@ -9065,23 +9031,23 @@ dmz_block_dev
 bdev
 )
 
-525 i‡(
+520 i‡(
 	`dmz_gë_bdev_modñ
 (
 bdev
 ) < 0)
 
-528 i‡(
+523 i‡(
 	`dmz_gë_bdev_ˇ∑côy
 (
 bdev
 ) < 0)
 
-532 
+527 
 	}
 }
 
-539 
+534 
 	$dmz_check_ovîwrôe
 (
 dmz_block_dev
@@ -9089,21 +9055,21 @@ dmz_block_dev
 bdev
 )
 
-541 c⁄° *
+536 c⁄° *
 ty≥
 ;
 
-542 
+537 
 blkid_¥obe
  
 ¥
 ;
 
-543 
+538 
 ªt
  = -1;
 
-545 
+540 
 ¥
  = 
 	`blkid_√w_¥obe_‰om_fûíame
@@ -9113,15 +9079,15 @@ bdev
 ∑th
 );
 
-546 i‡(!
+541 i‡(!
 ¥
 )
 
-547 
+542 
 out
 ;
 
-549 
+544 
 ªt
  = 
 	`blkid_¥obe_íabÀ_su≥rblocks
@@ -9129,15 +9095,15 @@ out
 ¥
 , 1);
 
-550 i‡(
+545 i‡(
 ªt
  < 0)
 
-551 
+546 
 out
 ;
 
-553 
+548 
 ªt
  = 
 	`blkid_¥obe_íabÀ_∑πôi⁄s
@@ -9145,15 +9111,15 @@ out
 ¥
 , 1);
 
-554 i‡(
+549 i‡(
 ªt
  < 0)
 
-555 
+550 
 out
 ;
 
-557 
+552 
 ªt
  = 
 	`blkid_do_fuŒ¥obe
@@ -9161,15 +9127,15 @@ out
 ¥
 );
 
-558 i‡(
+553 i‡(
 ªt
  < 0 ||Ñet == 1) {
 
-560 
+555 
 out
 ;
 
-564 
+559 
 ªt
  = 
 	`blkid_¥obe_lookup_vÆue
@@ -9181,17 +9147,17 @@ ty≥
 NULL
 );
 
-565 i‡(
+560 i‡(
 ªt
  == 0) {
 
-566 
+561 
 	`Ârötf
 (
 °dîr
 ,
 
-568 
+563 
 bdev
 ->
 ∑th
@@ -9199,11 +9165,11 @@ bdev
 ty≥
 );
 
-569 
+564 
 out
 ;
 
-572 
+567 
 ªt
  = 
 	`blkid_¥obe_lookup_vÆue
@@ -9215,17 +9181,17 @@ ty≥
 NULL
 );
 
-573 i‡(
+568 i‡(
 ªt
  == 0) {
 
-574 
+569 
 	`Ârötf
 (
 °dîr
 ,
 
-576 
+571 
 bdev
 ->
 ∑th
@@ -9233,75 +9199,75 @@ bdev
 ty≥
 );
 
-577 
+572 
 out
 ;
 
-580 
+575 
 	`Ârötf
 (
 °dîr
 ,
 
-582 
+577 
 bdev
 ->
 ∑th
 );
 
-583 
+578 
 ªt
  = 0;
 
-585 
+580 
 out
 :
 
-586 i‡(
+581 i‡(
 ¥
 )
 
-587 
+582 
 	`blkid_‰ì_¥obe
 (
 ¥
 );
 
-589 i‡(
+584 i‡(
 ªt
  == 0)
 
-590 
+585 
 	`Ârötf
 (
 °dîr
 , "UseÅhe --force optionÅo overwrite\n");
 
-591 i‡(
+586 i‡(
 ªt
  < 0)
 
-592 
+587 
 	`Ârötf
 (
 °dîr
 ,
 
-594 
+589 
 bdev
 ->
 «me
 );
 
-596  
+591  
 ªt
 ;
 
-597 
+592 
 	}
 }
 
-602 
+597 
 	$dmz_›í_bdev
 (
 dmz_block_dev
@@ -9315,7 +9281,7 @@ dmz_›
 Êags
 )
 
-604 
+599 
 ›í_Êags
  = 
 O_RDWR
@@ -9323,17 +9289,17 @@ O_RDWR
 O_LARGEFILE
 ;
 
-605 
+600 
 °©
  
 °
 ;
 
-606 
+601 
 ªt
 ;
 
-608 
+603 
 bdev
 ->
 «me
@@ -9343,7 +9309,7 @@ bdev
 ∑th
 );
 
-609 
+604 
 bdev
 ->
 dúe˘_io
@@ -9351,7 +9317,7 @@ dúe˘_io
 Ál£
 ;
 
-612 i‡(
+607 i‡(
 	`°©
 (
 bdev
@@ -9361,25 +9327,25 @@ bdev
 °
 ) < 0) {
 
-613 
+608 
 	`Ârötf
 (
 °dîr
 ,
 
-615 
+610 
 bdev
 ->
 ∑th
 ,
 
-616 
+611 
 î∫o
 , 
 	`°ªº‹
 (errno));
 
-620 i‡(!
+615 i‡(!
 	`S_ISBLK
 (
 °
@@ -9387,33 +9353,33 @@ bdev
 °_mode
 )) {
 
-621 
+616 
 	`Ârötf
 (
 °dîr
 ,
 
-623 
+618 
 bdev
 ->
 ∑th
 );
 
-627 
+622 
 ›
 ) {
 
-628 
+623 
 DMZ_OP_FORMAT
 :
 
-629 i‡(!(
+624 i‡(!(
 Êags
  & 
 DMZ_OVERWRITE
 )) {
 
-631 
+626 
 ªt
  = 
 	`dmz_check_ovîwrôe
@@ -9421,31 +9387,31 @@ DMZ_OVERWRITE
 bdev
 );
 
-632 i‡(
+627 i‡(
 ªt
  <= 0)
 
-636 
+631 
 DMZ_OP_REPAIR
 :
 
-637 
+632 
 DMZ_OP_RELABEL
 :
 
-644 i‡(!(
+639 i‡(!(
 Êags
  & 
 DMZ_METADATA_BDEV
 )) {
 
-645 
+640 
 ›í_Êags
  |
 O_DIRECT
 ;
 
-646 
+641 
 bdev
 ->
 dúe˘_io
@@ -9453,43 +9419,43 @@ dúe˘_io
 åue
 ;
 
-649 
+644 
 DMZ_OP_CHECK
 :
 
-650 
+645 
 DMZ_OP_START
 :
 
-651 
+646 
 DMZ_OP_STOP
 :
 
-654 
+649 
 	`Ârötf
 (
 °dîr
 , "Invalid operation\n");
 
-658 i‡(
+653 i‡(
 	`dmz_bdev_mou¡ed
 (
 bdev
 )) {
 
-659 
+654 
 	`Ârötf
 (
 °dîr
 ,
 
-661 
+656 
 bdev
 ->
 ∑th
 );
 
-665 i‡(
+660 i‡(
 	`dmz_bdev_busy
 (
 bdev
@@ -9497,19 +9463,19 @@ bdev
 NULL
 )) {
 
-666 
+661 
 	`Ârötf
 (
 °dîr
 ,
 
-668 
+663 
 bdev
 ->
 ∑th
 );
 
-673 
+668 
 bdev
 ->
 fd
@@ -9521,47 +9487,47 @@ fd
 ›í_Êags
 );
 
-674 i‡(
+669 i‡(
 bdev
 ->
 fd
  < 0) {
 
-675 
+670 
 	`Ârötf
 (
 °dîr
 ,
 
-677 
+672 
 bdev
 ->
 ∑th
 ,
 
-678 
+673 
 î∫o
 , 
 	`°ªº‹
 (errno));
 
-683 i‡(
+678 i‡(
 	`dmz_gë_bdev_öfo
 (
 bdev
 ) < 0) {
 
-684 
+679 
 	`dmz_˛o£_bdev
 (
 bdev
 );
 
-689 
+684 
 	}
 }
 
-694 
+689 
 	$dmz_gë_bdev_hﬁdî
 (
 dmz_block_dev
@@ -9571,13 +9537,13 @@ bdev
 hﬁdî
 )
 
-696 
+691 
 °©
  
 °
 ;
 
-698 
+693 
 bdev
 ->
 «me
@@ -9587,7 +9553,7 @@ bdev
 ∑th
 );
 
-701 i‡(
+696 i‡(
 	`°©
 (
 bdev
@@ -9597,25 +9563,25 @@ bdev
 °
 ) < 0) {
 
-702 
+697 
 	`Ârötf
 (
 °dîr
 ,
 
-704 
+699 
 bdev
 ->
 ∑th
 ,
 
-705 
+700 
 î∫o
 , 
 	`°ªº‹
 (errno));
 
-709 i‡(!
+704 i‡(!
 	`S_ISBLK
 (
 °
@@ -9623,37 +9589,37 @@ bdev
 °_mode
 )) {
 
-710 
+705 
 	`Ârötf
 (
 °dîr
 ,
 
-712 
+707 
 bdev
 ->
 ∑th
 );
 
-716 i‡(
+711 i‡(
 	`dmz_bdev_mou¡ed
 (
 bdev
 )) {
 
-717 
+712 
 	`Ârötf
 (
 °dîr
 ,
 
-719 
+714 
 bdev
 ->
 ∑th
 );
 
-723 i‡(!
+718 i‡(!
 	`dmz_bdev_busy
 (
 bdev
@@ -9661,7 +9627,7 @@ bdev
 hﬁdî
 ))
 
-724 
+719 
 	`mem£t
 (
 hﬁdî
@@ -9669,11 +9635,11 @@ hﬁdî
 PATH_MAX
 );
 
-727 
+722 
 	}
 }
 
-732 
+727 
 	$dmz_˛o£_bdev
 (
 dmz_block_dev
@@ -9681,13 +9647,13 @@ dmz_block_dev
 bdev
 )
 
-734 i‡(
+729 i‡(
 bdev
 ->
 fd
  >= 0) {
 
-735 
+730 
 	`˛o£
 (
 bdev
@@ -9695,17 +9661,17 @@ bdev
 fd
 );
 
-736 
+731 
 bdev
 ->
 fd
  = -1;
 
-738 
+733 
 	}
 }
 
-743 
+738 
 __u8
  *
 	$dmz_mÆloc_buf
@@ -9715,11 +9681,11 @@ size_t
 size
 )
 
-745 *
+740 *
 buf
 ;
 
-747 i‡(
+742 i‡(
 	`posix_memÆign
 (&
 buf
@@ -9731,19 +9697,19 @@ _SC_PAGESIZE
 size
 ))
 
-748  
+743  
 NULL
 ;
 
-750  
+745  
 buf
 ;
 
-751 
+746 
 	}
 }
 
-756 
+751 
 	$dmz_ªad_block
 (
 dmz_dev
@@ -9759,19 +9725,19 @@ __u8
 buf
 )
 
-758 
+753 
 __u64
  
 ªad_block
 ;
 
-759 
+754 
 dmz_block_dev
  *
 bdev
  =
 
-760 
+755 
 	`dmz_block_to_bdev
 (
 dev
@@ -9781,13 +9747,13 @@ block
 ªad_block
 );
 
-761 
+756 
 ssize_t
  
 ªt
 ;
 
-762 
+757 
 __u8
  *
 rdbuf
@@ -9795,13 +9761,13 @@ rdbuf
 buf
 ;
 
-764 i‡(
+759 i‡(
 bdev
 ->
 dúe˘_io
 ) {
 
-766 
+761 
 rdbuf
  = 
 	`dmz_mÆloc_buf
@@ -9809,11 +9775,11 @@ rdbuf
 DMZ_BLOCK_SIZE
 );
 
-767 i‡(!
+762 i‡(!
 rdbuf
 )
 
-771 
+766 
 ªt
  = 
 	`¥ód
@@ -9827,59 +9793,59 @@ rdbuf
 DMZ_BLOCK_SIZE
 ,
 
-772 
+767 
 ªad_block
  << 
 DMZ_BLOCK_SHIFT
 );
 
-774 i‡(
+769 i‡(
 ªt
  !
 DMZ_BLOCK_SIZE
 ) {
 
-775 
+770 
 	`Ârötf
 (
 °dîr
 ,
 
-777 
+772 
 bdev
 ->
 «me
 ,
 
-778 
+773 
 ªad_block
 ,
 
-779 
+774 
 î∫o
 , 
 	`°ªº‹
 (errno));
 
-780 i‡(
+775 i‡(
 bdev
 ->
 dúe˘_io
 )
 
-781 
+776 
 	`‰ì
 (
 rdbuf
 );
 
-785 i‡(
+780 i‡(
 bdev
 ->
 dúe˘_io
 ) {
 
-786 
+781 
 	`mem˝y
 (
 buf
@@ -9889,17 +9855,17 @@ rdbuf
 DMZ_BLOCK_SIZE
 );
 
-787 
+782 
 	`‰ì
 (
 rdbuf
 );
 
-791 
+786 
 	}
 }
 
-796 
+791 
 	$dmz_wrôe_block
 (
 dmz_dev
@@ -9915,19 +9881,19 @@ __u8
 buf
 )
 
-798 
+793 
 __u64
  
 wrôe_block
 ;
 
-799 
+794 
 dmz_block_dev
  *
 bdev
  =
 
-800 
+795 
 	`dmz_block_to_bdev
 (
 dev
@@ -9937,13 +9903,13 @@ block
 wrôe_block
 );
 
-801 
+796 
 ssize_t
  
 ªt
 ;
 
-802 
+797 
 __u8
  *
 wrbuf
@@ -9951,13 +9917,13 @@ wrbuf
 buf
 ;
 
-804 i‡(
+799 i‡(
 bdev
 ->
 dúe˘_io
 ) {
 
-806 
+801 
 wrbuf
  = 
 	`dmz_mÆloc_buf
@@ -9965,11 +9931,11 @@ wrbuf
 DMZ_BLOCK_SIZE
 );
 
-807 i‡(!
+802 i‡(!
 wrbuf
 )
 
-809 
+804 
 	`mem˝y
 (
 wrbuf
@@ -9979,7 +9945,7 @@ buf
 DMZ_BLOCK_SIZE
 );
 
-812 
+807 
 ªt
  = 
 	`pwrôe
@@ -9993,57 +9959,57 @@ wrbuf
 DMZ_BLOCK_SIZE
 ,
 
-813 
+808 
 wrôe_block
  << 
 DMZ_BLOCK_SHIFT
 );
 
-815 i‡(
+810 i‡(
 bdev
 ->
 dúe˘_io
 )
 
-816 
+811 
 	`‰ì
 (
 wrbuf
 );
 
-818 i‡(
+813 i‡(
 ªt
  !
 DMZ_BLOCK_SIZE
 ) {
 
-819 
+814 
 	`Ârötf
 (
 °dîr
 ,
 
-821 
+816 
 bdev
 ->
 «me
 ,
 
-822 
+817 
 block
 ,
 
-823 
+818 
 î∫o
 , 
 	`°ªº‹
 (errno));
 
-828 
+823 
 	}
 }
 
-833 
+828 
 	$dmz_sync_dev
 (
 dmz_dev
@@ -10051,17 +10017,17 @@ dmz_dev
 dev
 )
 
-835 
+830 
 dmz_block_dev
  *
 bdev
 ;
 
-836 
+831 
 i
 ;
 
-839 
+834 
 	`¥ötf
 ("Syncög disk%s\n", 
 dev
@@ -10069,7 +10035,7 @@ dev
 ƒ_bdev
  > 1 ? "s" : "");
 
-841 
+836 
 i
  = 0; i < 
 dev
@@ -10077,7 +10043,7 @@ dev
 ƒ_bdev
 ; i++) {
 
-842 
+837 
 bdev
  = &
 dev
@@ -10085,7 +10051,7 @@ dev
 i
 ];
 
-843 i‡(
+838 i‡(
 	`fsync
 (
 bdev
@@ -10093,25 +10059,25 @@ bdev
 fd
 ) < 0) {
 
-844 
+839 
 	`Ârötf
 (
 °dîr
 ,
 
-846 
+841 
 bdev
 ->
 «me
 ,
 
-847 
+842 
 î∫o
 , 
 	`°ªº‹
 (errno));
 
-853 
+848 
 	}
 }
 
@@ -14813,17 +14779,17 @@ dev
 dmz_dev
 ));
 
-132 i‡(!
+131 i‡(!
 dev
 ) {
 
-133 
+132 
 	`Ârötf
 (
 °dîr
 , "Cannotállocate device memory\n");
 
-136 
+135 
 	`mem£t
 (
 dev
@@ -14831,7 +14797,7 @@ dev
 dmz_dev
 ));
 
-137 
+136 
 dev
 ->
 ƒ_ª£rved_£q
@@ -14839,7 +14805,7 @@ dev
 DMZ_NR_RESERVED_SEQ
 ;
 
-138 
+137 
 dev
 ->
 sb_vîsi⁄
@@ -14847,11 +14813,11 @@ sb_vîsi⁄
 DMZ_META_VER
 ;
 
-141 
+140 
 ›äum
  = 2;
 
-142 
+141 
 i
  = 
 ›äum
@@ -14859,7 +14825,7 @@ i
 ¨gc
 ; i++) {
 
-143 i‡(!
+142 i‡(!
 	`°∫cmp
 (
 ¨gv
@@ -14867,11 +14833,11 @@ i
 i
 ], "--", 2))
 
-145 
+144 
 ›äum
 ++;
 
-147 
+146 
 dev
 ->
 ƒ_bdev
@@ -14879,19 +14845,19 @@ dev
 ›äum
  - 2;
 
-148 i‡(!
+147 i‡(!
 dev
 ->
 ƒ_bdev
 ) {
 
-149 
+148 
 	`Ârötf
 (
 °dîr
 , "No device specified\n");
 
-153 
+152 
 dev
 ->
 bdev
@@ -14903,7 +14869,7 @@ dmz_block_dev
 ƒ_bdev
 );
 
-155 
+153 
 i
  = 0; i < 
 dev
@@ -14911,7 +14877,7 @@ dev
 ƒ_bdev
 ; i++) {
 
-156 
+154 
 dev
 ->
 bdev
@@ -14927,7 +14893,7 @@ i
 NULL
 );
 
-157 i‡(!
+155 i‡(!
 dev
 ->
 bdev
@@ -14937,37 +14903,37 @@ i
 ∑th
 ) {
 
-158 i‡(
+156 i‡(
 î∫o
  =
 ENOENT
 )
 
-159 
+157 
 	`Ârötf
 (
 °dîr
 ,
+
+159 
+¨gv
+[
+i
+ + 2]);
 
 161 
-¨gv
-[
-i
- + 2]);
-
-163 
 	`Ârötf
 (
 °dîr
 ,
 
-165 
+163 
 ¨gv
 [
 i
  + 2]);
 
-171 
+169 
 i
  = 
 ›äum
@@ -14975,7 +14941,7 @@ i
 ¨gc
 ; i++) {
 
-173 i‡(
+171 i‡(
 	`°rcmp
 (
 ¨gv
@@ -14983,7 +14949,7 @@ i
 i
 ], "--verbose") == 0) {
 
-175 
+173 
 dev
 ->
 Êags
@@ -14991,11 +14957,11 @@ dev
 DMZ_VERBOSE
 ;
 
-176 
+174 
 log_Àvñ
  = 1;
 
-178 } i‡(
+176 } i‡(
 	`°rcmp
 (
 ¨gv
@@ -15003,7 +14969,7 @@ log_Àvñ
 i
 ], "--vverbose") == 0) {
 
-180 
+178 
 dev
 ->
 Êags
@@ -15013,11 +14979,11 @@ DMZ_VERBOSE
 DMZ_VVERBOSE
 ;
 
-181 
+179 
 log_Àvñ
  = 2;
 
-183 } i‡(
+181 } i‡(
 	`°∫cmp
 (
 ¨gv
@@ -15025,19 +14991,19 @@ log_Àvñ
 i
 ], "--seq=", 6) == 0) {
 
-185 i‡(
+183 i‡(
 ›
  !
 DMZ_OP_FORMAT
 ) {
 
-186 
+184 
 	`Ârötf
 (
 °dîr
 ,
 
-192 
+190 
 dev
 ->
 ƒ_ª£rved_£q
@@ -15049,19 +15015,19 @@ dev
 i
 ] + 6);
 
-193 i‡(
+191 i‡(
 dev
 ->
 ƒ_ª£rved_£q
  <= 0) {
 
-194 
+192 
 	`Ârötf
 (
 °dîr
 ,
 
-199 } i‡(
+197 } i‡(
 	`°∫cmp
 (
 ¨gv
@@ -15069,7 +15035,7 @@ dev
 i
 ], "--label=", 8) == 0) {
 
-200 c⁄° *
+198 c⁄° *
 œbñ
  = 
 ¨gv
@@ -15077,7 +15043,7 @@ i
 i
 ] + 8;
 
-201 
+199 
 œbñ_size
  = 
 	`°æí
@@ -15085,7 +15051,7 @@ i
 œbñ
 );
 
-203 i‡(
+201 i‡(
 ›
  !
 DMZ_OP_FORMAT
@@ -15093,47 +15059,47 @@ DMZ_OP_FORMAT
 DMZ_OP_RELABEL
 ) {
 
-204 
+202 
 	`Ârötf
 (
 °dîr
 ,
 
-209 i‡(
+207 i‡(
 œbñ
 [0] == '\'' ||Üabel[0] == '\"') {
 
-210 
+208 
 œbñ
 ++;
 
-211 
+209 
 œbñ_size
  -= 2;
 
-213 i‡(
+211 i‡(
 œbñ_size
  > 
 DMZ_LABEL_LEN
  - 1) {
 
-214 
+212 
 	`Ârötf
 (
 °dîr
 ,
 
-216 
+214 
 DMZ_LABEL_LEN
  - 1);
 
-219 i‡(
+217 i‡(
 ›
  =
 DMZ_OP_FORMAT
 )
 
-220 
+218 
 	`mem˝y
 (
 dev
@@ -15143,7 +15109,7 @@ dev
 œbñ_size
 );
 
-222 
+220 
 	`mem˝y
 (
 dev
@@ -15155,7 +15121,7 @@ dev
 œbñ_size
 );
 
-224 } i‡(
+222 } i‡(
 	`°rcmp
 (
 ¨gv
@@ -15163,19 +15129,19 @@ dev
 i
 ], "--force") == 0) {
 
-226 i‡(
+224 i‡(
 ›
  !
 DMZ_OP_FORMAT
 ) {
 
-227 
+225 
 	`Ârötf
 (
 °dîr
 ,
 
-233 
+231 
 dev
 ->
 Êags
@@ -15183,25 +15149,25 @@ dev
 DMZ_OVERWRITE
 ;
 
-235 } i‡(
+233 } i‡(
 ¨gv
 [
 i
 ][0] != '-') {
 
-241 
+239 
 	`Ârötf
 (
 °dîr
 ,
 
-243 
+241 
 ¨gv
 [
 i
 ]);
 
-252 
+249 
 ªt
  = 
 	`dmz_lﬂd_moduÀ
@@ -15211,11 +15177,11 @@ mod«me
 log_Àvñ
 );
 
-253 i‡(
+250 i‡(
 ªt
 )
 
-258 
+254 
 dmz_mod_vî
  = 
 	`dmz_öô_dm
@@ -15223,11 +15189,11 @@ dmz_mod_vî
 log_Àvñ
 );
 
-259 i‡(
+255 i‡(
 dmz_mod_vî
  <= 0)
 
-262 i‡(
+258 i‡(
 dmz_mod_vî
  < ()
 dev
@@ -15235,17 +15201,17 @@ dev
 sb_vîsi⁄
 ) {
 
-263 
+259 
 	`Ârötf
 (
 °dîr
 , "Falling backÅo metadata version %d\n",
 
-264 
+260 
 dmz_mod_vî
 );
 
-265 
+261 
 dev
 ->
 sb_vîsi⁄
@@ -15253,7 +15219,7 @@ sb_vîsi⁄
 dmz_mod_vî
 ;
 
-266 } i‡(
+262 } i‡(
 dmz_mod_vî
  > ()
 dev
@@ -15261,11 +15227,11 @@ dev
 sb_vîsi⁄
 ) {
 
-267 
+263 
 	`¥ötf
 ("DefaultingÅo metadata version %d from version %d\n",
 
-268 
+264 
 dev
 ->
 sb_vîsi⁄
@@ -15273,19 +15239,19 @@ sb_vîsi⁄
 dmz_mod_vî
 );
 
-270 i‡(
+266 i‡(
 ›
  =
 DMZ_OP_STOP
 ) {
 
-271 
+267 
 hﬁdî
 [
 PATH_MAX
 ];
 
-273 i‡(
+269 i‡(
 	`dmz_gë_bdev_hﬁdî
 (&
 dev
@@ -15295,19 +15261,19 @@ bdev
 hﬁdî
 ) < 0)
 
-275 i‡(!
+271 i‡(!
 	`°æí
 (
 hﬁdî
 )) {
 
-276 
+272 
 	`Ârötf
 (
 °dîr
 , "%s:Ço dm-zoned device found\n",
 
-277 
+273 
 dev
 ->
 bdev
@@ -15315,7 +15281,7 @@ bdev
 «me
 );
 
-280  
+276  
 	`dmz_°›
 (
 dev
@@ -15323,7 +15289,7 @@ dev
 hﬁdî
 );
 
-284 
+280 
 ªt
  = 
 	`dmz_›í_bdev
@@ -15335,7 +15301,7 @@ bdev
 ›
 ,
 
-285 
+281 
 dev
 ->
 Êags
@@ -15343,17 +15309,17 @@ dev
 DMZ_METADATA_BDEV
 );
 
-286 i‡(
+282 i‡(
 ªt
 )
 
-289 i‡(
+285 i‡(
 dev
 ->
 ƒ_bdev
  > 1) {
 
-290 i‡(
+286 i‡(
 	`dmz_bdev_is_z⁄ed
 (&
 dev
@@ -15361,13 +15327,13 @@ dev
 bdev
 [0])) {
 
-291 
+287 
 	`Ârötf
 (
 °dîr
 ,
 
-293 
+289 
 dev
 ->
 bdev
@@ -15375,7 +15341,7 @@ bdev
 «me
 );
 
-294 
+290 
 	`dmz_˛o£_bdev
 (&
 dev
@@ -15383,7 +15349,7 @@ dev
 bdev
 [0]);
 
-298 i‡(!
+294 i‡(!
 	`dmz_bdev_is_z⁄ed
 (&
 dev
@@ -15391,29 +15357,29 @@ dev
 bdev
 [0])) {
 
-299 
+295 
 	`Ârötf
 (
 °dîr
 ,
+
+297 
+dev
+->
+bdev
+[0].
+«me
+);
+
+298 
+	`dmz_˛o£_bdev
+(&
+dev
+->
+bdev
+[0]);
 
 301 
-dev
-->
-bdev
-[0].
-«me
-);
-
-302 
-	`dmz_˛o£_bdev
-(&
-dev
-->
-bdev
-[0]);
-
-305 
 dev
 ->
 z⁄e_ƒ_£˘‹s
@@ -15421,7 +15387,7 @@ z⁄e_ƒ_£˘‹s
 bdev
 [0].zone_nr_sectors;
 
-306 
+302 
 dev
 ->
 z⁄e_ƒ_blocks
@@ -15429,7 +15395,7 @@ z⁄e_ƒ_blocks
 bdev
 [0].zone_nr_blocks;
 
-309 
+304 
 dev
 ->
 ˇ∑côy
@@ -15437,7 +15403,7 @@ dev
 bdev
 [0].capacity;
 
-312 
+307 
 i
  = 1; i < 
 dev
@@ -15445,7 +15411,7 @@ dev
 ƒ_bdev
 ; i++) {
 
-313 i‡(
+308 i‡(
 	`dmz_›í_bdev
 (&
 dev
@@ -15459,7 +15425,7 @@ i
 Êags
 ) < 0)
 
-316 i‡(!
+311 i‡(!
 	`dmz_bdev_is_z⁄ed
 (&
 dev
@@ -15469,13 +15435,13 @@ bdev
 i
 ])) {
 
-317 
+312 
 	`Ârötf
 (
 °dîr
 ,
 
-319 
+314 
 dev
 ->
 bdev
@@ -15485,15 +15451,15 @@ i
 «me
 );
 
-320 
+315 
 ªt
  = 1;
 
-321 
+316 
 out_˛o£
 ;
 
-324 
+319 
 dev
 ->
 ˇ∑côy
@@ -15503,13 +15469,13 @@ bdev
 i
 ].capacity;
 
-328 i‡(
+322 i‡(
 dev
 ->
 z⁄e_ƒ_£˘‹s
  &&
 
-329 
+323 
 dev
 ->
 z⁄e_ƒ_£˘‹s
@@ -15519,13 +15485,13 @@ bdev
 i
 ].zone_nr_sectors) {
 
-330 
+324 
 	`Ârötf
 (
 °dîr
 ,
 
-332 
+326 
 dev
 ->
 bdev
@@ -15535,13 +15501,13 @@ i
 «me
 ,
 
-333 
+327 
 dev
 ->
 z⁄e_ƒ_£˘‹s
 ,
 
-334 
+328 
 dev
 ->
 bdev
@@ -15551,15 +15517,15 @@ i
 z⁄e_ƒ_£˘‹s
 );
 
-335 
+329 
 ªt
  = 1;
 
-336 
+330 
 out_˛o£
 ;
 
-339 
+332 
 dev
 ->
 z⁄e_ƒ_£˘‹s
@@ -15569,13 +15535,13 @@ bdev
 i
 ].zone_nr_sectors;
 
-344 i‡(
+337 i‡(
 dev
 ->
 z⁄e_ƒ_blocks
  &&
 
-345 
+338 
 dev
 ->
 z⁄e_ƒ_blocks
@@ -15585,13 +15551,13 @@ bdev
 i
 ].zone_nr_blocks) {
 
-346 
+339 
 	`Ârötf
 (
 °dîr
 ,
 
-348 
+341 
 dev
 ->
 bdev
@@ -15601,13 +15567,13 @@ i
 «me
 ,
 
-349 
+342 
 dev
 ->
 z⁄e_ƒ_blocks
 ,
 
-350 
+343 
 dev
 ->
 bdev
@@ -15617,15 +15583,15 @@ i
 z⁄e_ƒ_blocks
 );
 
-351 
+344 
 ªt
  = 1;
 
-352 
+345 
 out_˛o£
 ;
 
-354 
+347 
 dev
 ->
 z⁄e_ƒ_blocks
@@ -15635,19 +15601,19 @@ bdev
 i
 ].zone_nr_blocks;
 
-359 i‡(
+351 i‡(
 dev
 ->
 ƒ_bdev
  > 1) {
 
-360 
+352 
 __u64
  
 block_off£t
  = 0;
 
-362 
+354 
 dev
 ->
 bdev
@@ -15655,7 +15621,7 @@ bdev
 z⁄e_ƒ_£˘‹s
  = dev->zone_nr_sectors;
 
-364 
+355 
 dev
 ->
 bdev
@@ -15663,7 +15629,7 @@ bdev
 z⁄e_ƒ_blocks
  = dev->zone_nr_blocks;
 
-365 
+356 
 dev
 ->
 bdev
@@ -15671,7 +15637,7 @@ bdev
 ƒ_z⁄es
  =
 
-366 
+357 
 dev
 ->
 bdev
@@ -15681,7 +15647,7 @@ bdev
 z⁄e_ƒ_£˘‹s
 ;
 
-367 
+358 
 dev
 ->
 bdev
@@ -15689,7 +15655,7 @@ bdev
 block_off£t
  = block_offset;
 
-369 i‡(
+359 i‡(
 dev
 ->
 bdev
@@ -15697,9 +15663,9 @@ bdev
 ˇ∑côy
  % dev->
 z⁄e_ƒ_£˘‹s
-){
+)
 
-371 
+360 
 dev
 ->
 bdev
@@ -15707,7 +15673,7 @@ bdev
 ƒ_z⁄es
 ++;
 
-374 
+361 
 block_off£t
  = 
 dev
@@ -15719,7 +15685,7 @@ bdev
 z⁄e_ƒ_blocks
 ;
 
-375 
+362 
 i
  = 1; i < 
 dev
@@ -15727,7 +15693,7 @@ dev
 ƒ_bdev
 ; i++) {
 
-376 
+363 
 dev
 ->
 bdev
@@ -15737,11 +15703,11 @@ i
 block_off£t
  = block_offset;
 
-377 
+364 
 block_off£t
  +=
 
-378 
+365 
 dev
 ->
 bdev
@@ -15753,7 +15719,7 @@ i
 z⁄e_ƒ_blocks
 ;
 
-382 
+369 
 i
  = 0; i < 
 dev
@@ -15761,7 +15727,7 @@ dev
 ƒ_bdev
 ; i++)
 
-383 
+370 
 	`¥öt_dev_öfo
 (&
 dev
@@ -15771,13 +15737,13 @@ bdev
 i
 ]);
 
-385 i‡(
+372 i‡(
 	`dmz_gë_dev_z⁄es
 (
 dev
 ) < 0)
 
-388 
+375 
 ƒ_z⁄es
  = 
 dev
@@ -15787,33 +15753,33 @@ dev
 z⁄e_ƒ_£˘‹s
 ;
 
-389 
+376 
 	`¥ötf
 (" %u zones of %zu 512-byte sectors (%zu MiB)\n",
 
-390 
+377 
 ƒ_z⁄es
 ,
 
-391 
+378 
 dev
 ->
 z⁄e_ƒ_£˘‹s
 ,
 
-392 (
+379 (
 dev
 ->
 z⁄e_ƒ_£˘‹s
  << 9) / (1024 * 1024));
 
-394 i‡(
+380 i‡(
 ƒ_z⁄es
  < 
 dev
 ->nr_zones) {
 
-395 
+381 
 size_t
  
 ru¡_£˘‹s
@@ -15825,37 +15791,37 @@ dev
 z⁄e_ƒ_£˘‹s
  - 1);
 
-397 
+383 
 	`¥ötf
 (" 1Ñunt zone of %zu 512-byte sectors (%zu MiB)\n",
 
-398 
+384 
 ru¡_£˘‹s
 ,
 
-399 (
+385 (
 ru¡_£˘‹s
  << 9) / (1024 * 1024));
 
-401 
+387 
 	`¥ötf
 (" %zu 4KB data blocksÖer zone\n",
 
-402 
+388 
 dev
 ->
 z⁄e_ƒ_blocks
 );
 
-404 
+390 
 ›
 ) {
 
-406 
+392 
 DMZ_OP_FORMAT
 :
 
-407 
+393 
 ªt
  = 
 	`dmz_f‹m©
@@ -15863,11 +15829,11 @@ DMZ_OP_FORMAT
 dev
 );
 
-410 
+396 
 DMZ_OP_CHECK
 :
 
-411 
+397 
 ªt
  = 
 	`dmz_check
@@ -15875,11 +15841,11 @@ DMZ_OP_CHECK
 dev
 );
 
-414 
+400 
 DMZ_OP_REPAIR
 :
 
-415 
+401 
 ªt
  = 
 	`dmz_ª∑ú
@@ -15887,11 +15853,11 @@ DMZ_OP_REPAIR
 dev
 );
 
-418 
+404 
 DMZ_OP_RELABEL
 :
 
-419 
+405 
 ªt
  = 
 	`dmz_ªœbñ
@@ -15899,11 +15865,11 @@ DMZ_OP_RELABEL
 dev
 );
 
-422 
+408 
 DMZ_OP_START
 :
 
-423 
+409 
 ªt
  = 
 	`dmz_°¨t
@@ -15911,17 +15877,17 @@ DMZ_OP_START
 dev
 );
 
-428 
+414 
 	`Ârötf
 (
 °dîr
 , "Unknown operation\n");
 
-429 
+415 
 ªt
  = 1;
 
-434 
+420 
 	`‰ì
 (
 dev
@@ -15929,7 +15895,7 @@ dev
 z⁄es
 );
 
-435 
+421 
 dev
 ->
 z⁄es
@@ -15937,11 +15903,11 @@ z⁄es
 NULL
 ;
 
-437 
+423 
 out_˛o£
 :
 
-438 
+424 
 i
  = 0; i < 
 dev
@@ -15949,7 +15915,7 @@ dev
 ƒ_bdev
 ; i++)
 
-439 
+425 
 	`dmz_˛o£_bdev
 (&
 dev
@@ -15959,7 +15925,7 @@ bdev
 i
 ]);
 
-440 
+426 
 	`‰ì
 (
 dev
@@ -15967,17 +15933,17 @@ dev
 bdev
 );
 
-441 
+427 
 	`‰ì
 (
 dev
 );
 
-442  
+428  
 ªt
 ;
 
-443 
+429 
 	}
 }
 

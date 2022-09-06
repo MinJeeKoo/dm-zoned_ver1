@@ -5,7 +5,7 @@
 AC_INIT([dm-zoned-tools], [2.2.1], [damien.lemoal@wdc.com])
 
 AC_PREFIX_DEFAULT(/usr)
-AC_CONFIG_HEADER([src/config.h])
+AC_CONFIG_HEADERS([src/config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects])
@@ -13,7 +13,6 @@ AM_SILENT_RULES([yes])
 
 AC_USE_SYSTEM_EXTENSIONS
 AC_SYS_LARGEFILE
-AC_GNU_SOURCE
 
 m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
 m4_pattern_allow([AM_PROG_AR])
@@ -39,11 +38,16 @@ AC_CHECK_MEMBER([struct blk_zone.capacity],
 		[], [[#include <linux/blkzoned.h>]])
 
 # Checks for libraries.
-PKG_CHECK_MODULES([blkid], [blkid])
-PKG_CHECK_MODULES([kmod], [libkmod])
-PKG_CHECK_MODULES([libudev], [libudev])
-PKG_CHECK_MODULES([uuid], [uuid])
-PKG_CHECK_MODULES([devmapper], [devmapper])
+PKG_CHECK_MODULES([blkid], [blkid],
+		  [], [AC_MSG_ERROR([Could not find libblkid])])
+PKG_CHECK_MODULES([kmod], [libkmod],
+		  [], [AC_MSG_ERROR([Could not find libkmod])])
+PKG_CHECK_MODULES([libudev], [libudev],
+		  [], [AC_MSG_ERROR([Could not find libudev])])
+PKG_CHECK_MODULES([uuid], [uuid],
+		  [], [AC_MSG_ERROR([Could not find libuuid])])
+PKG_CHECK_MODULES([devmapper], [devmapper],
+		  [], [AC_MSG_ERROR([Could not find libdevmapper])])
 
 # Checks for rpm package builds
 AC_PATH_PROG([RPMBUILD], [rpmbuild], [notfound])

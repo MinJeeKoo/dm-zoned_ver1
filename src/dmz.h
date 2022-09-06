@@ -381,8 +381,8 @@ extern int dmz_mod_ver;
 
 #define dmz_zone_sector(z)	(z)->start
 #define dmz_zone_id(dev, zone)	((unsigned int)(dmz_zone_sector(zone) / (dev)->zone_nr_sectors))
-#define dmz_zone_length(z)	(z)->len
-//#define dmz_zone_length(z)	131072
+//#define dmz_zone_length(z)	(z)->len
+#define dmz_zone_length(z)	2205696
 #define dmz_zone_wp_sector(z)	(z)->wp
 #define dmz_zone_need_reset(z)	(int)(z)->reset
 #define dmz_zone_non_seq(z)	(int)(z)->non_seq

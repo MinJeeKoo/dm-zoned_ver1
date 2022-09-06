@@ -128,12 +128,11 @@ int main(int argc, char **argv)
 
 	/* Initialize */
 	dev = malloc(sizeof(struct dmz_dev));
-	//fprintf(stderr, "mj_sizeof dev: %zu\n", sizeof(struct dmz_dev)); //240
 	if (!dev) {
 		fprintf(stderr, "Cannot allocate device memory\n");
 		return 1;
 	}
-	memset(dev, 0, sizeof(struct dmz_dev)); //memset: memory+setting to value 0
+	memset(dev, 0, sizeof(struct dmz_dev));
 	dev->nr_reserved_seq = DMZ_NR_RESERVED_SEQ;
 	dev->sb_version = DMZ_META_VER;
 
@@ -151,7 +150,6 @@ int main(int argc, char **argv)
 	}
 
 	dev->bdev = malloc(sizeof(struct dmz_block_dev) * dev->nr_bdev);
-	//fprintf(stderr, "mj_sizeof bdev: %zu, nr_bdev: %d\n", sizeof(struct dmz_block_dev), dev->nr_bdev); //88,2
 	for (i = 0; i < dev->nr_bdev; i++) {
 		dev->bdev[i].path = realpath(argv[i + 2], NULL);
 		if (!dev->bdev[i].path) {
@@ -248,13 +246,11 @@ int main(int argc, char **argv)
 	}
 
 	/* Load module if not present */
-	/* int ret */
 	ret = dmz_load_module(modname, log_level);
 	if (ret)
 		return 1;
 
 	/* Check device-mapper target version */
-	/* int dmz_mod_ver */
 	dmz_mod_ver = dmz_init_dm(log_level);
 	if (dmz_mod_ver <= 0)
 		return 1;
@@ -286,16 +282,16 @@ int main(int argc, char **argv)
 	if (ret)
 		return 1;
 
-	if (dev->nr_bdev > 1) { //device개수가 2개 이상인 경우
-		if (dmz_bdev_is_zoned(&dev->bdev[0])) { // 첫번째 device가 zns인 경우 error
+	if (dev->nr_bdev > 1) {
+		if (dmz_bdev_is_zoned(&dev->bdev[0])) {
 			fprintf(stderr,
 				"%s: Not a regular block device\n",
 				dev->bdev[0].name);
-			dmz_close_bdev(&dev->bdev[0]); //close an open device.
+			dmz_close_bdev(&dev->bdev[0]);
 			return 1;
 		}
-	} else { //device개수가 1개인경우 
-		if (!dmz_bdev_is_zoned(&dev->bdev[0])) { //첫번째 device가 zns가 아닌경우error
+	} else {
+		if (!dmz_bdev_is_zoned(&dev->bdev[0])) {
 			fprintf(stderr,
 				"%s: Not a zoned block device\n",
 				dev->bdev[0].name);
@@ -305,9 +301,8 @@ int main(int argc, char **argv)
 		dev->zone_nr_sectors = dev->bdev[0].zone_nr_sectors;
 		dev->zone_nr_blocks = dev->bdev[0].zone_nr_blocks;
 	}
-	//dev->bdev[0].capacity = 781320192;
 	dev->capacity = dev->bdev[0].capacity;
-	//fprintf(stderr, "[MJ]dev-> bdev[0].capacity : %lld\n", dev->bdev[0].capacity); //781422768
+	//fprintf(stderr, "seq write nvme capacity : %llu\n", dev->bdev[0].capacity);// 8388608
 
 	for (i = 1; i < dev->nr_bdev; i++) {
 		if (dmz_open_bdev(&dev->bdev[i], op, dev->flags) < 0)
@@ -322,9 +317,8 @@ int main(int argc, char **argv)
 		}
 
 		dev->capacity += dev->bdev[i].capacity;
-		//fprintf(stderr, "dev-> bdev[i].capacity : %lld\n", dev->bdev[i].capacity); //i =1, 66437775360
-
-		//dev->capacity = 67218898944;
+		//fprintf(stderr, "added nvme capacity : %llu\n", dev->bdev[i].capacity); //15468593152
+		//fprintf(stderr, "zone_nr_sectors: %zu\n", dev->zone_nr_sectors); // 0
 		if (dev->zone_nr_sectors &&
 		    dev->zone_nr_sectors != dev->bdev[i].zone_nr_sectors) {
 			fprintf(stderr,
@@ -335,11 +329,10 @@ int main(int argc, char **argv)
 			ret = 1;
 			goto out_close;
 		} else{
-			//dev->bdev[i].zone_nr_sectors = 131072;
-			dev->zone_nr_sectors = dev->bdev[i].zone_nr_sectors;
-			//fprintf(stderr, "dev->bdev[i].zone_nr_sectors: %zu / i : %d\n",dev->bdev[i].zone_nr_sectors , i); // 196608, i=1 // zone_nr_sectors: number of sectors in one zone.
+			dev->zone_nr_sectors = dev->bdev[i].zone_nr_sectors;// wd: 4194304
+			//fprintf(stderr, "[CHECK]dev->bdev[i].zone_nr_sectors : %zu\n", dev->bdev[i].zone_nr_sectors);
+			//dev->zone_nr_sectors = 2097152;
 		}
-			
 
 		if (dev->zone_nr_blocks &&
 		    dev->zone_nr_blocks != dev->bdev[i].zone_nr_blocks) {
@@ -352,25 +345,19 @@ int main(int argc, char **argv)
 			goto out_close;
 		} else {
 			dev->zone_nr_blocks = dev->bdev[i].zone_nr_blocks;
-			//fprintf(stderr, "dev->zone_nr_blocks: %zu\n",dev->zone_nr_blocks); //24576
 		}
 	}
 
 	if (dev->nr_bdev > 1) {
 		__u64 block_offset = 0;
 
-		dev->bdev[0].zone_nr_sectors = dev->zone_nr_sectors;// nvme2n1: make same zone size with nvme0n1
-		//fprintf(stderr, "dev->bdev[0].zone_nr_sectors : %zu\n", dev->bdev[0].zone_nr_sectors); //196608
+		dev->bdev[0].zone_nr_sectors = dev->zone_nr_sectors;
 		dev->bdev[0].zone_nr_blocks = dev->zone_nr_blocks;
 		dev->bdev[0].nr_zones =
 			dev->bdev[0].capacity / dev->zone_nr_sectors;
 		dev->bdev[0].block_offset = block_offset;
-		//fprintf(stderr, "dev->bdev[0].block_offset: %llu\n", dev->bdev[0].block_offset); // 0
-		if (dev->bdev[0].capacity % dev->zone_nr_sectors){
-			//fprintf(stderr, "dev->bdev[0].capacity : %llu / dev->zone_nr_sectors : %zu\n", dev->bdev[0].capacity, dev->zone_nr_sectors); // dev->bdev[0].capacity : 781422768 / dev->zone_nr_sectors : 196608
+		if (dev->bdev[0].capacity % dev->zone_nr_sectors)
 			dev->bdev[0].nr_zones++;
-			//fprintf(stderr, "dev->bdev[0].nr_zones: %u\n", dev->bdev[0].nr_zones); //3975 
-		}
 		block_offset = dev->bdev[0].nr_zones * dev->zone_nr_blocks;
 		for (i = 1; i < dev->nr_bdev; i++) {
 			dev->bdev[i].block_offset = block_offset;
@@ -380,7 +367,7 @@ int main(int argc, char **argv)
 	}
 
 	for (i = 0; i < dev->nr_bdev; i++)
-		print_dev_info(&dev->bdev[i]);	//device들의 정보출력.
+		print_dev_info(&dev->bdev[i]);
 
 	if (dmz_get_dev_zones(dev) < 0)
 		return 1;
@@ -390,7 +377,6 @@ int main(int argc, char **argv)
 	       nr_zones,
 	       dev->zone_nr_sectors,
 	       (dev->zone_nr_sectors << 9) / (1024 * 1024));
-	//fprintf(stderr, "[main]nr_zones: %u/ dev->nr_zones: %u\n", nr_zones,dev->nr_zones);
 	if (nr_zones < dev->nr_zones) {
 		size_t runt_sectors = dev->capacity & (dev->zone_nr_sectors - 1);
 

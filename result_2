@@ -1,0 +1,14 @@
+dmz_zone_capacity(blkz) : 2097152
+dmz_zone_length(blkz) : 2097152
+dev->zone_nr_sectors 	: 4194304
+dmz_zone_sector(blkz)/ dmz_zone_length(blkz) : 0/ 2097152
+[if]dmz_zone_length(blkz) != dev->zone_nr_sectors : 1
+[if] dmz_zone_sector(blkz) + dmz_zone_length(blkz) != bdev->capacity : 1
+[if] dmz_zone_sector(blkz), dmz_zone_length(blkz), bdev->capacity : 0, 2097152, 15468593152
+nvme1n2: Invalid zone 0 size
+/dev/nvme1n1: 8388608 512-byte sectors (4 GiB)
+  Regular block device
+  2 zones, offset 0
+/dev/nvme1n2: 15468593152 512-byte sectors (7376 GiB)
+  Host-managed device
+  3688 zones, offset 1048576
